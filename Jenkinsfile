@@ -3,8 +3,8 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-
-        checkout scm
+ 	git 'https://github.com/Uditanshu0110/NodeApp.git'
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Uditanshu0110/NodeApp.git']]])
     }
 
     stage('Build image') {
